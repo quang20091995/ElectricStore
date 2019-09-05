@@ -1,26 +1,28 @@
-﻿.product-info {
+﻿.add-product-area {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
     color: #333;
+    font-size: 14px;
     font-weight: 400;
+}
+
+.product-info { 
     background-color: white;
     margin-top: 60px;
     border: 1px #ddd solid;
 }
 
-.product-info-head {
+.head-title {
     height: 44px;
     font-size: 16px;
-    border: 1px #ddd solid;
 }
 
-    .product-info-head .icon-container {
-        padding: 8px 0 0 24px;
-    }
+.icon-container {
+    padding: 8px 0 0 24px;
+}
 
-    .product-info-head .toggle-icon {
-        padding: 8px 24px 0 0;
-    }
+.toggle-icon {
+    padding: 8px 24px 0 0;
+}
 
 .form-control {
     border-radius: 0;
@@ -47,3 +49,49 @@
     width: 20px;
     height: 20px;
 }
+
+/*Phần hình ảnh*/
+.product-image-area {
+    margin-top: 10px;
+    border: 1px #ddd solid;
+    background-color: white;
+}
+
+.image-area{
+    padding: 10px;
+}
+
+.image-table{
+    text-align: center;
+}
+
+.image-table thead tr th{
+    text-align: center;
+}
+
+.image-table input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+}
+
+.add-image-area{
+    margin-top: 10px;
+    border: 1px #ddd solid;
+    background-color: white;
+}
+
+.add-image-area .form-group{
+    padding: 10px;
+}
+
+.info-advanced-area {
+    margin-top: 10px;
+    border: 1px #ddd solid;
+    background-color: white;
+}
+
+.info-advanced-area input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+}
+
