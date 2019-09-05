@@ -1,0 +1,388 @@
+﻿body{
+    background-color: white;
+}
+
+.second-category {
+    margin-top: 1px;
+    margin-left: 235px;
+    width: 900px;
+    height: 500px;
+    background-color: #242a7a;
+    display: none;
+}
+
+/* Header Top */
+.header-top{
+    height: 34px; 
+    background-color: #365899;
+}
+
+.header-control{
+    float: right;
+    line-height: 34px;
+    margin-left: 10px;
+    margin-right: 4px;
+    font-weight: bold;
+}
+
+.header-control a{
+    color: white;
+    text-decoration: none;
+}
+
+.header-control a:hover{
+    color: #E02222;
+}
+
+.header-control i{
+    color: black;
+}
+
+/* Navigation */
+nav.navbar-fixed-top.navbar-area {
+    margin-top: 34px;
+    background: #fff;
+}
+
+.logo-area{
+    float: left;
+    padding-left: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.search-area {
+    width: 500px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin-left: 100px;
+    float: left;
+}
+
+.input-search{
+    width: 400px;
+    float:left;
+}
+
+.button-search{
+    float: left;
+}
+
+.tel-num-area p{
+    float: left;
+    font-size: 14px;
+    padding-top: 22px;
+}
+
+.tel-num-area h4{
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #E02222;
+    padding-top: 10px;
+    margin-left: 2px;
+}
+
+a.cart-area {
+    margin: 10px 0px 0px 20px;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    width: 103px;
+    height: 40px;
+    background-color: #E02222;
+    color: #FFF;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.cart-area span{
+    font-size: 14px;
+    padding: 2px;
+}
+
+.container.head-area {
+    margin-top: 100px;
+    position: relative;
+}
+
+div#carousel-id {
+    margin-left: 10px;
+    width: 900px;
+    height: 500px;
+}
+
+li.list-group-item.main {
+    background-color: #242a7a;
+    color: #FFF;
+    font-weight: 100;
+    font-weight: bold;
+}
+
+#link-category:hover{
+    cursor: pointer;
+    background-color: #c8c8c8;
+}
+
+.carousel{
+    float: left;
+}
+
+.new-info{
+    position: relative;
+    width: 230px; 
+    float: left;
+}
+
+.main-info {
+    margin-top: 30px;
+}
+
+/*Product*/
+.product-item {
+    width:256px;
+    height:347px;
+    padding: 10px;
+    background: #fff;
+    margin-top: 20px;
+    position: relative;
+}
+.product-item:hover {
+    border: 1px black solid;
+}
+.product-item:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    line-height:0;
+}
+.sticker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 63px;
+    height: 63px;
+}
+.sticker-new {
+    background: url(http://keenthemes.com/assets/bootsnipp/new.png) no-repeat;
+    left: auto;
+    right: 0;
+}
+
+.pi-img-wrapper {
+    position: relative;
+}
+
+.pi-img-wrapper img{
+    width: 232.5px;
+    height: 210px;
+}
+
+.pi-img-wrapper div {
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.product-item:hover>.pi-img-wrapper>div {
+    display: block;
+}
+
+.pi-img-wrapper div .btn {
+    padding: 3px 10px;
+    color: #fff;
+    border: 1px #fff solid;
+    margin: -13px 5px 0;
+    background: transparent;
+    text-transform: uppercase;
+    position: relative;
+    top: 50%;
+    line-height: 1.4;
+    font-size: 12px;
+}
+.product-item .btn:hover {
+    background: #e84d1c;
+    border-color: #c8c8c8;
+}
+
+.product-item h3 {
+    font-size: 14px;
+    font-weight: 300;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+}
+.product-item h3 a {
+    color: #3e4d5c;
+}
+.product-item h3 a:hover {
+    color: #E02222;
+}
+.pi-price {
+    color: #e84d1c;
+    font-size: 18px;
+    float: left;
+    padding-top: 1px;
+}
+.product-item .add2cart {
+    float: right;
+    color: #a8aeb3;
+    border: 1px #ededed solid;
+    padding: 3px 6px;
+    text-transform: uppercase;
+}
+.product-item .add2cart:hover {
+    color: #fff;
+    background: #e84d1c;
+    border-color: #e84d1c;
+}
+
+span{
+    font-size:15px;
+}
+
+.main-info .container .pi-price a{
+    color: #0062cc;
+    border-bottom:2px solid #0062cc;
+}
+
+.service-area{
+    margin-top: 20px;
+}
+
+  
+.box-part{
+    background:#FFF;
+    border-radius:0;
+    padding:60px 10px;
+    margin:30px 0px;
+}
+       
+.text{
+    margin:20px 0px;
+}
+        
+.fa{
+    color:#4183D7;
+}   
+
+.pagination-area {
+    text-align: center;
+}
+
+
+
+/* Footer */
+footer{
+    background-color: #4471c2;
+    color: #FFF;
+}
+
+.footer-info-area{
+    width: 190px;
+}
+
+.footer-table b{
+    display: block;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.footer-table a{
+    display: block;
+    text-decoration: none;
+    color: #FFF;
+    line-height: 30px;
+}
+
+.list-payment-area{
+    line-height: 40px;
+}
+
+
+.list-payment-area img{ 
+    width: 40px;
+    height: 40px;
+}
+
+/*Css phía bên trái chỗ sản phẩm*/
+
+.condition-area {
+    background-color: #ddd;
+    width: 230px;
+}
+
+.memory-condition-area li {
+    margin-right: 2px;
+    margin-top: 2px;
+    text-decoration: none;
+    list-style: none;
+    width: 61px;
+    float: left;
+    padding: 2px;
+    border: 1px black solid;
+    border-radius: 3px;
+    text-align: center;
+}
+
+    .memory-condition-area li a {
+        text-decoration: none;
+    }
+
+    .memory-condition-area li:hover {
+        background: #a8aeb3;
+        cursor: pointer;
+    }
+
+.monitor-size-condition-area li {
+    margin-right: 2px;
+    margin-top: 2px;
+    text-decoration: none;
+    list-style: none;
+    float: left;
+    padding: 2px;
+    border: 1px black solid;
+    border-radius: 3px;
+    text-align: center;
+}
+
+    .monitor-size-condition-area li a {
+        text-decoration: none;
+    }
+
+    .monitor-size-condition-area li:hover {
+        background: #a8aeb3;
+        cursor: pointer;
+    }
+
+.price-condition-area a {
+    text-decoration: none;
+    line-height: 20px;
+}
+
+.products-area{
+    padding-left:60px;
+}
+
+.condition-search {
+    width: 201px;
+    height:30px;
+    font-weight:bold;
+    margin-bottom: 10px;
+    border-radius: 1px;
+}
+
+.active{
+    background-color: aqua;
+}
+
+
+
+
+

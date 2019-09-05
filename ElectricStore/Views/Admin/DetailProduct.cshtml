@@ -1,0 +1,116 @@
+﻿<link href="~/Content/Admin/source/css/productdetail.css" rel="stylesheet" />
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="product-info">
+    <div class="product-info-head row">
+        <div class="icon-container col-xs-3">
+            <span class="fa fa-info panel-icon"></span>
+            <span>Thông tin sản phẩm</span>
+        </div>        
+        <i class="toggle-icon fa fa-minus col-xs-9 text-right"></i>
+    </div>
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 label-wrapper">
+                    <label class="control-label">
+                        Tên sản phẩm
+                    </label>
+                    <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                        <i class="fa fa-question-circle"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <input class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 label-wrapper">
+                    <label class="control-label">
+                        Danh mục SP
+                    </label>
+                    <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                        <i class="fa fa-question-circle"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <select class="form-control category">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 label-wrapper">
+                    <label class="control-label">
+                        Hãng
+                    </label>
+                    <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                        <i class="fa fa-question-circle"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <select class="form-control company">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 label-wrapper">
+                    <label class="control-label">
+                        Giá SP
+                    </label>
+                    <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                        <i class="fa fa-question-circle"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <input type="number" class="form-control" id="price" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 label-wrapper">
+                    <label class="control-label">
+                        Ảnh SP
+                    </label>
+                    <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                        <i class="fa fa-question-circle"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <input class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 label-wrapper">
+                    <label class="control-label">
+                        Trạng thái SP
+                    </label>
+                    <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                        <i class="fa fa-question-circle"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-7" style="margin-top: 3px;">
+                    <input type="checkbox" class="stock-status">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

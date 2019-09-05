@@ -1,0 +1,122 @@
+﻿<link href="~/Content/Admin/source/css/admin.css" rel="stylesheet" />
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="top-banner row">
+    <div class="col-xs-3">
+        <h2><b>Quản lý sản phẩm</b></h2>
+    </div>
+    <div class="col-xs-9 text-right">
+        <div class="row">
+            <button class="btn btn-primary">Thêm mới</button>
+            <button class="btn btn-success">Xuất file Excel</button>
+        </div>
+    </div>
+</div>
+
+<div class="search-area">
+    <div class="banner row">
+        <div class="icon-search col-md-3">
+            <i class="fa fa-search"></i>
+            Tìm kiếm
+        </div>
+        <div class="icon-collapse col-md-3 pull-right text-right"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+    </div>
+
+    <div class="row form-search">
+        <form>
+            <div class="col-xs-5 left-area">
+                <div class="form-group row">
+                    <label class="col-xs-3 col-form-label">Tên SP</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="product-name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xs-3 col-form-label">Danh mục</label>
+                    <div class="col-xs-9">
+                        <select class="form-control col-xs-9 categorylist" id="category-id">
+                            <option value="#">Chọn danh mục sản phẩm</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xs-3 col-form-label">Hãng SP</label>
+                    <div class="col-xs-9">
+                        <select class="form-control col-xs-9 companylist" id="company-id">
+                            <option value="#">Chọn hãng sản phẩm</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 right-area">
+                <div class="form-group row">
+                    <label class="col-xs-3 col-form-label" id="product-id">Mã SP</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control product-id">
+                    </div>
+                </div>
+               
+                 <div class="form-group row stock-status">
+                    <label class="col-xs-3 col-form-label">Tình trạng</label>
+                    <div class="col-xs-9 text-left">
+                        <input type="checkbox" name="chk-stock-status" value="true"> Tồn tại
+                        <input type="checkbox" name="chk-stock-status" style="margin-left: 5px" value="false"> Không có
+                    </div>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+    <div class="row text-center">
+        <button class="btn btn-primary btn-search center text-center">
+            <i class="fa fa-search"></i> Tìm kiếm
+        </button>
+    </div>
+</div>
+
+<div class="product-area">
+    <table class="table table-bordered table-hover table-striped product-admin-table">
+        <colgroup>
+            <col style="width: 2%">
+            <col style="width: 3%">
+            <col style="width: 17%;">
+            <col style="width: 5%;">
+            <col style="width: 5%;">
+            <col style="width: 3%;">
+            <col style="width: 7%;">
+            <col style="width: 15%;">
+            <col style="width: 10%;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th><input type="checkbox" /></th>
+                <th>Mã SP</th>
+                <th>Tên SP</th>
+                <th>Loại SP</th>
+                <th>Hãng</th>
+                <th>Giá SP</th>
+                <th>Tình trạng</th>
+                <th>Hình ảnh</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="pagination-area col-md-3"></div>
+        <div class="col-md-6 text-right page_number"></div>
+        <div class="col-md-3 text-right">
+            <div class="btn btn-default btn-refresh">
+                <i class="fa fa-refresh"></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

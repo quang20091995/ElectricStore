@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="~/Content/Client/js/login.js"></script>
+    <script src="~/Content/Client/js/common.js"></script>
+    <script src="~/Content/Client/js/register.js"></script>
+    <script src="~/Content/Client/js/cart.js"></script>
+
+    @*<script src="~/Content/Client/js/product_detail.js"></script>*@
+    <script src="~/Content/Client/js/search.js"></script>
+
+    <!-- Web CSS -->
+    <link href="~/Content/Client/css/index.css" rel="stylesheet">
+    <link href="~/Content/Client/css/cart.css" rel="stylesheet" />
+    <link href="~/Content/Client/css/product-detail.css" rel="stylesheet">
+    <link href="~/Content/Client/css/login.css" rel="stylesheet">
+    <link href="~/Content/Client/css/register.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar-fixed-top header-top">
+            <div class="header-control log-in">
+                <span>
+                    <i class="fa fa-sign-in"></i>
+                </span>
+                <a href="" data-toggle="modal" data-target="#modal-login">Đăng nhập</a>
+            </div>
+
+            <div class="header-control register">
+                <span>
+                    <i class="glyphicon glyphicon-user"></i>
+                </span>
+                <a href="" data-toggle="modal" data-target="#register-modal">Đăng ký</a>
+            </div>
+
+            <div class="header-control login-info hidden">
+                <span>
+                    <i class="glyphicon glyphicon-user"></i>
+                </span>
+                <a href="" data-toggle="modal" data-target="#modal-login"></a>
+            </div>
+
+            <div class="header-control log-out hidden" id="log-out">
+                <span>
+                    <i class="fa fa-sign-out"></i>
+                </span>
+                <a href="">Đăng xuất</a>
+            </div>
+        </div>
+
+        <nav class="navbar-fixed-top navbar-area" role="navigation">
+            <div class="logo-area">
+                <a href="">
+                    <img class="image-logo" src="~/Content/Images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="search-area">
+                <input type="search" class="form-control input-search" id="search-input" value="">
+                <button type="button" class="btn btn-danger button-search">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </div>
+            <div class="tel-num-area">
+                <p>Gọi mua hàng: </p>
+                <h4>08095752117</h4>
+            </div>
+            <a class="cart-area" href="@Url.Action("Index","Cart")">
+                <i class="glyphicon glyphicon-shopping-cart"></i>
+                <span id="cart-quantity"></span>
+                <b>Giỏ hàng: 0</b>
+            </a>
+        </nav>
+
+        <!-- Modal Login-->
+        <div class="modal fade" id="modal-login" data-backdrop="static" data-keyboard="false" role="dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" style="padding: 5px">&times;</button>
+                <div class="alert alert-danger error-area hidden">
+
+                </div>
+                <div class="form-login">
+                    <div class="form-group">
+                        <label>Địa chỉ Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Vui lòng nhập email">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" class="form-control" id="password" placeholder="Mật khẩu">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input">
+                        <label class="form-check-label">Lưu lại thông tin đăng nhập</label>
+                    </div>
+                    <div style="text-align: end; margin-right: 28px">
+                        <button type="submit" class="btn btn-primary" id="login">Đăng nhập</button>
+                        <button type="submit" class="btn btn-light" data-dismiss="modal">Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Register-->
+        <div class="modal fade" id="register-modal" data-backdrop="static" data-keyboard="false" role="dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" style="padding: 5px">&times;</button>
+                <div class="alert alert-danger error-area hidden">
+
+                </div>
+                <div class="form-register">
+                    <div class="form-group">
+                        <label>Địa chỉ Email</label>
+                        <input type="text" class="form-control" id="register-email" placeholder="Vui lòng nhập email">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="password" class="form-control" id="register-password" placeholder="Mật khẩu">
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input type="text" class="form-control" id="address" placeholder="Địa chỉ">
+                    </div>
+                    <div style="text-align:end">
+                        <button type="submit" class="btn btn-primary" id="register" onclick="register()">Đăng ký</button>
+                        <button type="submit" class="btn btn-light" data-dismiss="modal">Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        <div class="container">
+            <table class="footer-table">
+                <tbody>
+                    <tr>
+                        <td class="footer-info-area">
+                            <div>
+                                <b class="title">Thông tin công ty</b>
+                                <a href="/page/dieu-khoan-giao-dich" rel="nofollow">Điều khoản giao dịch</a>
+                                <a href="/page/quy-dinh-truy-cap-website" rel="nofollow">Quy định truy cập website</a>
+                                <a href="/page/thong-tin-lien-he" rel="nofollow">Thông tin liên hệ</a>
+                                <a href="/tuyen-dung-phuc-anh.html" rel="nofollow">Thông tin tuyển dụng</a>
+                            </div>
+                        </td>
+
+                        <td class="footer-info-area">
+                            <div>
+                                <b class="title">Thông tin công ty</b>
+                                <a href="/page/dieu-khoan-giao-dich" rel="nofollow">Điều khoản giao dịch</a>
+                                <a href="/page/quy-dinh-truy-cap-website" rel="nofollow">Quy định truy cập website</a>
+                                <a href="/page/thong-tin-lien-he" rel="nofollow">Thông tin liên hệ</a>
+                                <a href="/tuyen-dung-phuc-anh.html" rel="nofollow">Thông tin tuyển dụng</a>
+                            </div>
+                        </td>
+
+                        <td class="footer-info-area">
+                            <div>
+                                <b class="title">Thông tin công ty</b>
+                                <a href="/page/dieu-khoan-giao-dich" rel="nofollow">Điều khoản giao dịch</a>
+                                <a href="/page/quy-dinh-truy-cap-website" rel="nofollow">Quy định truy cập website</a>
+                                <a href="/page/thong-tin-lien-he" rel="nofollow">Thông tin liên hệ</a>
+                                <a href="/tuyen-dung-phuc-anh.html" rel="nofollow">Thông tin tuyển dụng</a>
+                            </div>
+                        </td>
+
+                        <td class="list-payment-area">
+                            <div>
+                                <b class="title" style="margin-top: 4px">Hình thức thanh toán</b>
+                                <div>
+                                    <span><img src="~/Content/Images/payment-method-visa-512.png" alt=""></span>
+                                    <span>Sử dụng Visa</span>
+                                </div>
+                                <div>
+                                    <span><img src="~/Content/Images/mastercard.jpg" alt=""></span>
+                                    <span>Sử dụng Master Card</span>
+                                </div>
+                                <div>
+                                    <span><img src="~/Content/Images/vnpay.jpg" alt=""></span>
+                                    <span>Sử dụng VNPAY QR</span>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="email-register-area">
+                            <div>
+                                <b>Đăng ký Email nhận tin khuyến mãi</b>
+                                <span>
+                                    <input type="email" class="email-register-area" id="input"
+                                           placeholder="Vui lòng nhập Email" />
+                                </span>
+                                <span>
+                                    <button type="button" class="email-register-btn btn btn-primary">Nhập</button>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+

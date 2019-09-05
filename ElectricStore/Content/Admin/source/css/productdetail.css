@@ -1,0 +1,49 @@
+﻿.product-info {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    color: #333;
+    font-weight: 400;
+    background-color: white;
+    margin-top: 60px;
+    border: 1px #ddd solid;
+}
+
+.product-info-head {
+    height: 44px;
+    font-size: 16px;
+    border: 1px #ddd solid;
+}
+
+    .product-info-head .icon-container {
+        padding: 8px 0 0 24px;
+    }
+
+    .product-info-head .toggle-icon {
+        padding: 8px 24px 0 0;
+    }
+
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #ddd;
+}
+
+.label-wrapper {
+    display: table;
+}
+
+    .label-wrapper label {
+        display: table-cell;
+    }
+
+    .label-wrapper .ico-help {
+        width: 16px;
+        display: table-cell;
+        color: #3c8dbc;
+        padding-left: 6px;
+    }
+
+.stock-status {
+    width: 20px;
+    height: 20px;
+}

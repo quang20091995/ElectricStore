@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-menu" style="position: relative;">
+    <div class="container">
+        <i class="glyphicon glyphicon-th-list icon-active"></i>
+        <span>
+            <b>DANH MỤC SẢN PHẨM</b>
+        </span>
+
+        <script type="text/javascript">
+            $(".icon-active").hover(function () {
+                $('.list-item-category').show();
+            }, function () {
+                $('.list-item-category').hide();
+            });
+        </script>
+    </div>
+    <div class="list-item-category" style="position: absolute; top: 40px; left: 102px; z-index: 1;">
+        <ul class="list-group" style="width: 230px; color: black; border-radius: none">
+        </ul>
+    </div>
+</div>
+
+<div class="link-page-area">
+    <div class="container">
+        Trang chủ / Giỏ hàng
+    </div>
+</div>
+
+<div class="main-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="cart-items-area">
+                    <table class="table table-bordered table-hover" style="text-align: center">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Hình ảnh</th>
+                                <th>Tên mặt hàng</th>
+                                <th>Giá tiền</th>
+                                <th>Số lượng</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <div class="total-price-area">
+                        Tổng tiền:
+                        <span class="total-price"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="customer-info-area">
+                    <div class="info-title">2. Thông tin thanh toán</div>
+                    <p>Để tiếp tục đặt hàng, quý khách xin vui lòng đăng nhập hoặc nhập thông tin bên dưới</p>
+                    <p>
+                        <label>Họ và tên *</label>
+                        <input type="text" class="customer-name" id="name" placeholder="Họ và tên người nhận hàng">
+                    </p>
+                    <p>
+                        <label>Số điện thoại *</label>
+                        <input type="text" class="customer-telnum" id="telnum"
+                               placeholder="Dùng để liên lạc khi giao hàng">
+                    </p>
+                    <p>
+                        <label>Email (Vui lòng điền chính xác) *</label>
+                        <input type="text" class="customer-email" id="info-email"
+                               placeholder="Đã nhận thông báo đơn hàng">
+                    </p>
+                    <p>
+                        <label style="display:inline-block;" class="chk-adr-method active">
+                            <input type="radio" id="enter-address" checked="" name="type-radio"> Địa chỉ giao nhận
+                            hàng
+                        </label>
+                        <label style="display:inline-block;" class="chk-adr-method">
+                            <input type="radio" id="enter-store-address" name="type-radio"> Giao nhận tại siêu thị
+                        </label>
+                    </p>
+                    <button class="order-button">Đặt hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

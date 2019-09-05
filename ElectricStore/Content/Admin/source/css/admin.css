@@ -1,0 +1,107 @@
+﻿* {
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    padding: 0;
+}
+
+.top-banner{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.search-area {
+    border: 1px #ddd solid;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 245px;
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    background-color: white;
+}
+
+    .search-area .banner {
+        padding: 15px;
+    }
+
+    .search-area .right-area{
+        padding-left: 100px;
+    }
+
+    .search-area label {
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+    .search-area .stock-status input[type=checkbox] {
+        width:20px;
+        height:20px;
+    }
+
+    .product-area {
+        margin: 10px;
+        border: 1px #ddd solid;
+        border-radius: 4px;
+        background-color: white;
+        color: black;
+    }
+
+    .product-area .row {
+        display: flex;
+        align-items: center;
+    }
+
+.search-area .btn-search {
+    min-width: 150px;
+    padding-left: 7px 10px;
+    cursor:pointer;
+    background-color: #3c8dbc;
+    font-size:18px;
+}
+
+
+.product-admin-table {
+    width: 1198px;
+    margin: 15px;
+}
+    .product-admin-table thead tr th{
+        text-align:center;
+    }    
+
+    .product-admin-table input[type=checkbox] {
+        width: 15px;
+        height: 15px
+    }
+
+    .product-admin-table img {
+        width: 100px;
+        height: 100px;
+    }
+
+.pagination-area{
+    margin-left: 15px;
+}
+
+.pagination{
+    margin: 0;
+}
+
+.btn-refresh {
+    margin-right:15px;
+}
+
+.single-line {
+    border: 1px solid #ccc;
+    height: 30px;
+}
+
+.form-search .row{
+    padding-left:20px;
+}
+
+.page_number{
+    color:darkcyan;
+    font-weight:bold;
+    font-size:14px;
+}
