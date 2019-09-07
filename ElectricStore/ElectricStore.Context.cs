@@ -32,5 +32,6 @@ namespace ElectricStore
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<Album> Albums { get; set; }
     }
 }

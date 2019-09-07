@@ -166,6 +166,9 @@
     <Compile Include="Account.cs">
       <DependentUpon>ElectricStore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Album.cs">
+      <DependentUpon>ElectricStore.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -176,8 +179,14 @@
     <Compile Include="Common\Capacity.cs" />
     <Compile Include="Common\ConstantStatus.cs" />
     <Compile Include="Common\CPUType.cs" />
+    <Compile Include="Logic\IImageProductRepository.cs" />
+    <Compile Include="Logic\IProductDetailRepository.cs" />
+    <Compile Include="Logic\LogicExtension\ImageProductRepository.cs" />
+    <Compile Include="Logic\LogicExtension\ProductDetailRepository.cs" />
+    <Compile Include="Logic\LogicExtension\ProductRepository.cs" />
     <Compile Include="Common\Monitorsize.cs" />
     <Compile Include="Common\PriceLevel.cs" />
+    <Compile Include="Logic\IProductRepository.cs" />
     <Compile Include="Common\RoleValue.cs" />
     <Compile Include="Common\SessionData.cs" />
     <Compile Include="Company.cs">
@@ -210,9 +219,9 @@
     </Compile>
     <Compile Include="Logic\LogicExtension\PageLogic.cs" />
     <Compile Include="Logic\IPageLogic.cs" />
-    <Compile Include="Logic\Repository.cs" />
     <Compile Include="Models\Element\CartItem.cs" />
     <Compile Include="Models\Element\ConditionResult.cs" />
+    <Compile Include="Models\Request\AddProductRequest.cs" />
     <Compile Include="Models\Response\AdminProductResponse.cs" />
     <Compile Include="Models\Element\ProductElement.cs" />
     <Compile Include="Models\Element\ProductFullInfoElement.cs" />
@@ -332,6 +341,7 @@
     <Content Include="Content\Admin\source\images\prod-5.jpg" />
     <Content Include="Content\Admin\source\images\user.png" />
     <Content Include="Content\Admin\source\images\visa.png" />
+    <Content Include="Content\Admin\source\js\add_product.js" />
     <Content Include="Content\Admin\source\js\datepicker\daterangepicker.js" />
     <Content Include="Content\Admin\source\js\moment\moment.min.js" />
     <Content Include="Content\Admin\source\js\product_detail.js" />

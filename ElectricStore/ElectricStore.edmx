@@ -16,6 +16,15 @@
           <Property Name="Address" Type="nvarchar" MaxLength="100" />
           <Property Name="RoleId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+          </Key>
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ProductImage" Type="nvarchar(max)" />
+          <Property Name="ImageTitle" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryId" />
@@ -66,6 +75,7 @@
           <Property Name="ManufactureId" Type="int" />
           <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="0" />
           <Property Name="ProductImage" Type="nvarchar(max)" />
+          <Property Name="AlbumId" Type="int" />
           <Property Name="StockStatus" Type="bit" />
         </EntityType>
         <EntityType Name="Roles">
@@ -134,6 +144,7 @@
         </Association>
         <EntityContainer Name="LaptopStoreModelStoreContainer">
           <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductDetails" EntityType="Self.ProductDetails" Schema="dbo" store:Type="Tables" />
@@ -197,7 +208,7 @@
           <Property Name="Microprocessor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Speed" Type="Double" />
           <Property Name="Graphics" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="RAM" Type="String" />
+          <Property Name="RAM" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="Capacity" Type="Int32" />
           <Property Name="Hardware" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Monitor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -230,6 +241,7 @@
           <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Products" ToRole="Categories" />
           <NavigationProperty Name="Company" Relationship="Self.FK_Product_Company" FromRole="Products" ToRole="Companies" />
           <NavigationProperty Name="ProductDetail" Relationship="Self.FK_ProductDetail_Product" FromRole="Products" ToRole="ProductDetails" />
+          <Property Name="AlbumId" Type="Int32" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -320,7 +332,17 @@
             <End Role="Products" EntitySet="Products" />
             <End Role="ProductDetails" EntitySet="ProductDetails" />
           </AssociationSet>
+          <EntitySet Name="Albums" EntityType="LaptopStoreModel.Album" />
         </EntityContainer>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ProductImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AlbumId" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -385,6 +407,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="LaptopStoreModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -410,6 +433,16 @@
                 <ScalarProperty Name="OriginalStockQuantity" ColumnName="OriginalStockQuantity" />
                 <ScalarProperty Name="StockQuantity" ColumnName="StockQuantity" />
                 <ScalarProperty Name="StockStatus" ColumnName="StockStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Albums">
+            <EntityTypeMapping TypeName="LaptopStoreModel.Album">
+              <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

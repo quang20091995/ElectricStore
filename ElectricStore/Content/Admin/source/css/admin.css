@@ -3,7 +3,11 @@
     padding: 0;
 }
 
-.top-banner{
+.product-area table{
+    max-width: 1027px;
+}
+
+.top-banner {
     padding-left: 15px;
     padding-right: 15px;
 }

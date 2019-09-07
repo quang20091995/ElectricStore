@@ -3,6 +3,9 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+
+
 <div class="add-product-area">
     <div class="product-info">
         <div class="product-info-head head-title row">
@@ -10,10 +13,18 @@
                 <span class="fa fa-info panel-icon"></span>
                 <span>Thông tin sản phẩm</span>
             </div>
-            <i class="toggle-icon fa fa-minus col-xs-9 text-right"></i>
+            <i class="open-close toggle-icon glyphicon glyphicon-minus col-xs-9 text-right" data-toggle="collapse" data-target="#info-area"></i>
         </div>
 
-        <div class="form-horizontal">
+        <script type="text/javascript">
+            $(".open-close").click(function () {
+                $("#info-area").collapse('toggle');
+                $(".open-close").removeClass("glyphicon glyphicon-minus");
+                $(".open-close").addClass("glyphicon glyphicon-plus");
+            });
+        </script>
+
+        <div class="form-horizontal" id="info-area">
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
@@ -26,7 +37,7 @@
                     </div>
 
                     <div class="col-md-7">
-                        <input class="form-control" />
+                        <input class="form-control" id="product_name"/>
                     </div>
                 </div>
             </div>
@@ -42,7 +53,7 @@
                     </div>
 
                     <div class="col-md-7">
-                        <select class="form-control category">
+                        <select class="form-control category" id="category">
                             <option>Chọn danh mục</option>
                         </select>
                     </div>
@@ -60,7 +71,7 @@
                     </div>
 
                     <div class="col-md-7">
-                        <select class="form-control company">
+                        <select class="form-control company" id="company">
                             <option>Chọn công ty</option>
                         </select>
                     </div>
@@ -95,7 +106,7 @@
                     </div>
 
                     <div class="col-md-7" style="margin-top: 3px;">
-                        <input type="checkbox" class="stock-status">
+                        <input type="checkbox" id="stock-status" name="stock-status">
                     </div>
                 </div>
             </div>
@@ -191,7 +202,7 @@
                     </div>
                 </div>
                 <div class="col-xs-7">
-                    <input class="form-control" />
+                    <input class="form-control" id="image-title" />
                 </div>
             </div>
             <div class="row" style="margin-top: 10px">

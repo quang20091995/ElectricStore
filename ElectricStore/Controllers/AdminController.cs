@@ -1,6 +1,7 @@
 ﻿using Catel.Linq;
 using ElectricStore.Logic;
 using ElectricStore.Logic.LogicExtension;
+using ElectricStore.Models.Request;
 using ElectricStore.Models.Response;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace ElectricStore.Controllers
     {
         private readonly LaptopStoreEntities context = new LaptopStoreEntities();
         private readonly IPageLogic<ProductElement> ipage_logic = new PageLogic<ProductElement>();
+        private readonly IProductDetailRepository<ProductDetail> iproduct_detail_repository = new IProductDetailRepository<ProductDetail>();
         private readonly int PAGE_SIZE = 6;
 
         public AdminController()
@@ -99,11 +101,11 @@ namespace ElectricStore.Controllers
             return View();
         }
 
-        //public JsonRequestBehavior DetailProduct(int product_id)
-        //{
+        [HttpPost]
+        public JsonResult AddProduct(AddProductRequest parameter)
+        {
 
-        //    return 
-        //}
-
+            return Json(200, JsonRequestBehavior.AllowGet);
+        }
     }
 }
