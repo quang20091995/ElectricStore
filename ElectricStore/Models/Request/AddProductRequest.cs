@@ -13,7 +13,7 @@ namespace ElectricStore.Models.Request
         public Nullable<int> ManufactureId { get; set; }
         public Nullable<decimal> ProductPrice { get; set; }
         public string ProductImage { get; set; }
-        public string ImageTitle { get; set; }
+        public int AlbumId { get; set; }
         public Nullable<bool> StockStatus { get; set; }
 
 
@@ -36,6 +36,8 @@ namespace ElectricStore.Models.Request
         public Nullable<double> Weight { get; set; }
         public string Description { get; set; }
         public string Core { get; set; }
-        public string Disc { get; set; }     
+        public string Disc { get; set; }    
+        
+
     }
 }

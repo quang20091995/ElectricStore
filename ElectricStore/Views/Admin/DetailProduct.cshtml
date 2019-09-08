@@ -4,7 +4,27 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
+<div class="heading">
+    <div class="row">
+        <div class="col-xs-2 page-name">
+            Thêm sản phẩm mới
+        </div>
+        <div class="col-xs-3" >
+            <a href="" style="color: #0076bb">
+                <i class="fa fa-arrow-circle-left"></i>
+                Quay lại trang sản phẩm
+            </a>
+        </div>
+        <div class="col-xs-7 text-right">
+            <button class="btn bg-blue">
+                <i class="fa fa-floppy-o"> Lưu</i>
+            </button>
+            <button class="btn bg-blue">
+                <i class="fa fa-floppy-o"> Lưu và tiếp tục sửa</i>
+            </button>
+        </div>
+    </div>
+</div>
 
 <div class="add-product-area">
     <div class="product-info">
@@ -16,15 +36,15 @@
             <i class="open-close toggle-icon glyphicon glyphicon-minus col-xs-9 text-right" data-toggle="collapse" data-target="#info-area"></i>
         </div>
 
-        <script type="text/javascript">
+        @*<script type="text/javascript">
             $(".open-close").click(function () {
                 $("#info-area").collapse('toggle');
                 $(".open-close").removeClass("glyphicon glyphicon-minus");
                 $(".open-close").addClass("glyphicon glyphicon-plus");
             });
-        </script>
+        </script>*@
 
-        <div class="form-horizontal" id="info-area">
+        <div class="form-horizontal collapse" id="info-area">
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
@@ -548,9 +568,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </div>

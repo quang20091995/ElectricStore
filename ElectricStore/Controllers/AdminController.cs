@@ -1,4 +1,5 @@
 ﻿using Catel.Linq;
+using ElectricStore.Common.IRepository.Repository;
 using ElectricStore.Logic;
 using ElectricStore.Logic.LogicExtension;
 using ElectricStore.Models.Request;
@@ -15,7 +16,8 @@ namespace ElectricStore.Controllers
     {
         private readonly LaptopStoreEntities context = new LaptopStoreEntities();
         private readonly IPageLogic<ProductElement> ipage_logic = new PageLogic<ProductElement>();
-        private readonly IProductDetailRepository<ProductDetail> iproduct_detail_repository = new IProductDetailRepository<ProductDetail>();
+        private readonly IProductRepository iproduct_repository;
+        private readonly IProductDetailRepository iproduct_detail_repository;
         private readonly int PAGE_SIZE = 6;
 
         public AdminController()
@@ -104,8 +106,41 @@ namespace ElectricStore.Controllers
         [HttpPost]
         public JsonResult AddProduct(AddProductRequest parameter)
         {
+            Product product_parameter = new Product();
+            product_parameter.ProductName = parameter.ProductName;
+            product_parameter.CategoryId = parameter.CategoryId;
+            product_parameter.ManufactureId = parameter.ManufactureId;
+            product_parameter.ProductPrice = parameter.ProductPrice;
+            product_parameter.AlbumId = parameter.AlbumId;
+            product_parameter.StockStatus = parameter.StockStatus;
 
-            return Json(200, JsonRequestBehavior.AllowGet);
+            iproduct_repository.Insert(product_parameter);
+
+            ProductDetail product_detail_parameter = new ProductDetail();
+            product_detail_parameter.ProductId = context.Products.First(x => x.ProductName.Equals(parameter.ProductName)).ProductId;
+            product_detail_parameter.Microprocessor = parameter.Microprocessor;
+            product_detail_parameter.Speed = parameter.Speed;
+            product_detail_parameter.Graphics = parameter.Graphics;
+            product_detail_parameter.RAM = parameter.RAM;
+            product_detail_parameter.Capacity = parameter.Capacity;
+            product_detail_parameter.Hardware = parameter.Hardware;
+            product_detail_parameter.Monitor = parameter.Monitor;
+            product_detail_parameter.Monitorsize = parameter.Monitorsize;
+            product_detail_parameter.Operation = parameter.Operation;
+            product_detail_parameter.Color = parameter.Color;
+            product_detail_parameter.Connection = parameter.Connection;
+            product_detail_parameter.Gate = parameter.Gate;
+            product_detail_parameter.Webcam = parameter.Webcam;
+            product_detail_parameter.Recognition = parameter.Recognition;
+            product_detail_parameter.Battery = parameter.Battery;
+            product_detail_parameter.Size = parameter.Size;
+            product_detail_parameter.Weight = parameter.Weight;
+            product_detail_parameter.Description = parameter.Description;
+            product_detail_parameter.Core = parameter.Core;
+            product_detail_parameter.Disc = parameter.Disc;
+            iproduct_detail_repository.Insert(product_detail_parameter);
+
+            return Json("Thành công", JsonRequestBehavior.AllowGet);
         }
     }
 }

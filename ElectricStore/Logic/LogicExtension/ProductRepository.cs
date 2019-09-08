@@ -1,11 +1,11 @@
-﻿using ElectricStore.Common.Repository;
+﻿using ElectricStore.Logic;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace ElectricStore.Common.IRepository.Repository
+namespace ElectricStore.Logic.LogicExtension
 {
     public class ProductRepository : IProductRepository
     {
