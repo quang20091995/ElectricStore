@@ -5,7 +5,10 @@ $(document).ready(function () {
     displayCategory();
     displayCompany();
     init();
+
 });
+
+
 
 
 function displayProducts() {

@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-.product-area table{
-    max-width: 1027px;
-}
-
 .top-banner {
     padding-left: 15px;
     padding-right: 15px;
@@ -66,7 +62,7 @@
 
 
 .product-admin-table {
-    width: 1198px;
+    max-width: 1198px;
     margin: 15px;
 }
     .product-admin-table thead tr th{

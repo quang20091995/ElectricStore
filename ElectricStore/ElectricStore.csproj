@@ -323,6 +323,7 @@
     <Content Include="Content\Admin\build\js\custom.js" />
     <Content Include="Content\Admin\build\js\custom.min.js" />
     <Content Include="Content\Admin\source\css\admin.css" />
+    <Content Include="Content\Admin\source\css\editproduct.css" />
     <Content Include="Content\Admin\source\css\maps\jquery-jvectormap-2.0.3.css" />
     <Content Include="Content\Admin\source\images\american-express.png" />
     <Content Include="Content\Admin\source\images\avatar.jpg" />
@@ -4842,6 +4843,7 @@
     <Content Include="Views\Home\LoadProduct.cshtml" />
     <Content Include="Views\Admin\ManageProducts.cshtml" />
     <Content Include="Views\Admin\DetailProduct.cshtml" />
+    <Content Include="Views\Admin\EditProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

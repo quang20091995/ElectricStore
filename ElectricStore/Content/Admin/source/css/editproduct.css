@@ -1,8 +1,4 @@
-﻿.title{
-   font-size: 18px;
-}
-
-.heading .row {
+﻿.heading .row {
     font-size: 15px;
     line-height: 39px;
 }
@@ -65,17 +61,39 @@
     height: 20px;
 }
 
+/*Phần hình ảnh*/
+.product-image-area {
+    margin-top: 10px;
+    border: 1px #ddd solid;
+    background-color: white;
+}
+
+.image-area {
+    padding: 10px;
+}
+
+.image-table {
+    text-align: center;
+}
+
+    .image-table thead tr th {
+        text-align: center;
+    }
+
+    .image-table input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+    }
+
 .add-image-area {
     margin-top: 10px;
     border: 1px #ddd solid;
     background-color: white;
 }
 
-.text-area {
-    border: 1px solid #ddd;
-    margin: 0 10px 10px 10px;
-    padding: 10px;
-}
+    .add-image-area .form-group {
+        padding: 10px;
+    }
 
 .info-advanced-area {
     margin-top: 10px;

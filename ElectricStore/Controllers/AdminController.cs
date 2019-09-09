@@ -142,5 +142,10 @@ namespace ElectricStore.Controllers
 
             return Json("Thành công", JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult EditProduct(int product_id)
+        {
+            return View();
+        }
     }
 }
