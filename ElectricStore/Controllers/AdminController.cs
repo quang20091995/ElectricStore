@@ -1,5 +1,4 @@
 ﻿using Catel.Linq;
-using ElectricStore.Common.IRepository.Repository;
 using ElectricStore.Logic;
 using ElectricStore.Logic.LogicExtension;
 using ElectricStore.Models.Request;
@@ -16,8 +15,8 @@ namespace ElectricStore.Controllers
     {
         private readonly LaptopStoreEntities context = new LaptopStoreEntities();
         private readonly IPageLogic<ProductElement> ipage_logic = new PageLogic<ProductElement>();
-        private readonly IProductRepository iproduct_repository;
-        private readonly IProductDetailRepository iproduct_detail_repository;
+        private readonly IProductRepository iproduct_repository = new ProductRepository();
+        private readonly IProductDetailRepository iproduct_detail_repository = new ProductDetailRepository();
         private readonly int PAGE_SIZE = 6;
 
         public AdminController()
@@ -111,7 +110,6 @@ namespace ElectricStore.Controllers
             product_parameter.CategoryId = parameter.CategoryId;
             product_parameter.ManufactureId = parameter.ManufactureId;
             product_parameter.ProductPrice = parameter.ProductPrice;
-            product_parameter.AlbumId = parameter.AlbumId;
             product_parameter.StockStatus = parameter.StockStatus;
 
             iproduct_repository.Insert(product_parameter);

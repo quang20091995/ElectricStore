@@ -164,24 +164,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs">
-      <DependentUpon>ElectricStore.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Album.cs">
-      <DependentUpon>ElectricStore.tt</DependentUpon>
+      <DependentUpon>LaptopStore.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Category.cs">
-      <DependentUpon>ElectricStore.tt</DependentUpon>
+      <DependentUpon>LaptopStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Common\CartValue.cs" />
     <Compile Include="Common\Capacity.cs" />
     <Compile Include="Common\ConstantStatus.cs" />
     <Compile Include="Common\CPUType.cs" />
-    <Compile Include="Logic\IImageProductRepository.cs" />
+    <Compile Include="Company.cs">
+      <DependentUpon>LaptopStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaptopStore.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaptopStore.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaptopStore.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaptopStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LaptopStore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaptopStore.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Logic\IProductDetailRepository.cs" />
-    <Compile Include="Logic\LogicExtension\ImageProductRepository.cs" />
     <Compile Include="Logic\LogicExtension\ProductDetailRepository.cs" />
     <Compile Include="Logic\LogicExtension\ProductRepository.cs" />
     <Compile Include="Common\Monitorsize.cs" />
@@ -189,9 +202,6 @@
     <Compile Include="Logic\IProductRepository.cs" />
     <Compile Include="Common\RoleValue.cs" />
     <Compile Include="Common\SessionData.cs" />
-    <Compile Include="Company.cs">
-      <DependentUpon>ElectricStore.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -199,21 +209,6 @@
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ProductManageController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="ElectricStore.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ElectricStore.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ElectricStore.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ElectricStore.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ElectricStore.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -233,17 +228,17 @@
     <Compile Include="Models\Request\UserRequest.cs" />
     <Compile Include="Models\Response\ProductListResponse.cs" />
     <Compile Include="Product.cs">
-      <DependentUpon>ElectricStore.tt</DependentUpon>
+      <DependentUpon>LaptopStore.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductDetail.cs">
-      <DependentUpon>ElectricStore.tt</DependentUpon>
+      <DependentUpon>LaptopStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">
-      <DependentUpon>ElectricStore.tt</DependentUpon>
+      <DependentUpon>LaptopStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Stock.cs">
-      <DependentUpon>ElectricStore.tt</DependentUpon>
+      <DependentUpon>LaptopStore.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -3872,20 +3867,20 @@
     <Content Include="Content\Images\page_2.png" />
     <Content Include="Content\Images\page_3.png" />
     <Content Include="Content\Images\payment-method-visa-512.png" />
-    <Content Include="ElectricStore.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-      <LastGenOutput>ElectricStore.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ElectricStore.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-      <LastGenOutput>ElectricStore.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="LaptopStore.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LaptopStore.edmx</DependentUpon>
+      <LastGenOutput>LaptopStore.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LaptopStore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LaptopStore.edmx</DependentUpon>
+      <LastGenOutput>LaptopStore.cs</LastGenOutput>
+    </Content>
     <Content Include="obj\Debug\ElectricStore.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ElectricStore.dll" />
     <Content Include="obj\Debug\ElectricStore.pdb" />
@@ -3928,13 +3923,6 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <EntityDeploy Include="ElectricStore.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ElectricStore.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ElectricStore.edmx.diagram">
-      <DependentUpon>ElectricStore.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\Admin\vendors\animate.css\.bower.json" />
     <Content Include="Content\Admin\vendors\animate.css\animate-config.json" />
     <Content Include="Content\Admin\vendors\animate.css\bower.json" />
@@ -4809,6 +4797,13 @@
     <Content Include="Content\Admin\vendors\validator\.bower.json" />
     <Content Include="Content\Admin\vendors\validator\README.md" />
     <Content Include="Content\Admin\vendors\validator\validator.jquery.json" />
+    <EntityDeploy Include="LaptopStore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LaptopStore.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="LaptopStore.edmx.diagram">
+      <DependentUpon>LaptopStore.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -13,7 +13,6 @@ namespace ElectricStore.Models.Request
         public Nullable<int> ManufactureId { get; set; }
         public Nullable<decimal> ProductPrice { get; set; }
         public string ProductImage { get; set; }
-        public int AlbumId { get; set; }
         public Nullable<bool> StockStatus { get; set; }
 
 

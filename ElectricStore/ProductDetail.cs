@@ -22,6 +22,7 @@ namespace ElectricStore
         public Nullable<int> Capacity { get; set; }
         public string Hardware { get; set; }
         public string Monitor { get; set; }
+        public Nullable<double> Monitorsize { get; set; }
         public string Operation { get; set; }
         public string Color { get; set; }
         public string Connection { get; set; }
@@ -34,7 +35,6 @@ namespace ElectricStore
         public string Description { get; set; }
         public string Core { get; set; }
         public string Disc { get; set; }
-        public Nullable<double> Monitorsize { get; set; }
     
         public virtual Product Product { get; set; }
     }

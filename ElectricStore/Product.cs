@@ -21,7 +21,6 @@ namespace ElectricStore
         public Nullable<decimal> ProductPrice { get; set; }
         public string ProductImage { get; set; }
         public Nullable<bool> StockStatus { get; set; }
-        public Nullable<int> AlbumId { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Company Company { get; set; }
