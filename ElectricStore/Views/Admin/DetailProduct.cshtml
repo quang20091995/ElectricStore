@@ -17,7 +17,7 @@
         </div>
         <div class="col-xs-7 text-right">
             <button class="btn bg-blue">
-                <i class="fa fa-floppy-o"> Lưu</i>
+                <i class="fa fa-floppy-o" id="add-product-btn"> Lưu</i>
             </button>
             <button class="btn bg-blue">
                 <i class="fa fa-floppy-o"> Lưu và tiếp tục sửa</i>
@@ -30,8 +30,8 @@
     <div class="product-info">
         <div class="product-info-head head-title row">
             <div class="icon-container col-xs-3">
-                <span class="fa fa-info panel-icon"></span>
-                <span class="title"> Thông tin sản phẩm</span>
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <span class="title">Thông tin sản phẩm</span>
             </div>
             <i class="open-close-1 toggle-icon glyphicon glyphicon-plus col-xs-9 text-right" data-toggle="collapse" data-target="#info-area"></i>
         </div>
@@ -128,8 +128,8 @@
     <div class="add-image-area">
         <div class="product-info-head head-title row">
             <div class="icon-container col-xs-3">
-                <span class="glyphicon glyphicon-picture panel-icon"></span>
-                <span class="title"> Hình ảnh</span>
+                <span class="glyphicon glyphicon-picture"></span>
+                <span class="title">Hình ảnh</span>
             </div>
             <i class="open-close-2 toggle-icon glyphicon glyphicon-plus col-xs-9 text-right" data-toggle="collapse" data-target="#image-area"></i>
         </div>
@@ -141,8 +141,8 @@
     <div class="info-advanced-area">
         <div class="head-title row">
             <div class="icon-container col-xs-3">
-                <span class="fa fa-paperclip panel-icon"></span>
-                <span class="title"> Thông tin chi tiết sản phẩm</span>
+                <span class="fa fa-paperclip"></span>
+                <span class="title">Thông tin chi tiết sản phẩm</span>
             </div>
             <i class="open-close-3 toggle-icon glyphicon glyphicon-plus col-xs-9 text-right" data-toggle="collapse" data-target="#product-detail-area"></i>
         </div>
@@ -175,8 +175,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7" id="speed">
-                        <input class="form-control" />
+                    <div class="col-md-7">
+                        <input class="form-control" id="speed" />
                     </div>
                 </div>
             </div>
@@ -191,7 +191,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7" id="core">
+                    <div class="col-md-7">
                         <select class="form-control" id="core">
                             <option value="#">Chọn vi xử lý</option>
                             <option value="AMD3">AMD 3</option>
@@ -216,8 +216,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7" id="graphics">
-                        <input class="form-control" />
+                    <div class="col-md-7">
+                        <input class="form-control" id="graphics" />
                     </div>
                 </div>
             </div>
@@ -243,6 +243,28 @@
                     </div>
                 </div>
             </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Loại ổ đĩa
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <select class="form-control ram" id="disc">
+                            <option value="#">Chọn loại ổ đĩa</option>
+                            <option value="SSD+HDD">SSD+HDD</option>
+                            <option value="SSD">SSD</option>
+                            <option value="HDD">HDD</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
@@ -255,7 +277,7 @@
                     </div>
 
                     <div class="col-md-7">
-                        <input type="number" class="form-control" id="hardware-number" />
+                        <input type="number" class="form-control" id="capacity" />
                     </div>
                 </div>
             </div>
@@ -271,7 +293,7 @@
                     </div>
 
                     <div class="col-md-7">
-                        <input class="form-control" id="hardware-detail" />
+                        <input class="form-control" id="hardware" />
                     </div>
                 </div>
             </div>
@@ -287,15 +309,34 @@
                     </div>
 
                     <div class="col-md-7">
-                        <select class="form-control ram" id="monitor-size">
+                        <select class="form-control" id="monitor-size">
                             <option value="#">Chọn cỡ màn hình</option>
-                            <option value="13.1">13.1</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="13.3">13.3</option>
                             <option value="14">14</option>
                             <option value="15.6">15.6</option>
                         </select>
                     </div>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Màn hình
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="monitor" />
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
@@ -308,7 +349,7 @@
                     </div>
 
                     <div class="col-md-7">
-                        <input class="form-control" />
+                        <input class="form-control" id="operation" />
                     </div>
                 </div>
             </div>
@@ -349,8 +390,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7" id="connection">
-                        <input class="form-control" />
+                    <div class="col-md-7">
+                        <input class="form-control" id="connection" />
                     </div>
                 </div>
             </div>
@@ -366,8 +407,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7" id="gate">
-                        <input class="form-control" />
+                    <div class="col-md-7">
+                        <input class="form-control" id="gate" />
                     </div>
                 </div>
             </div>

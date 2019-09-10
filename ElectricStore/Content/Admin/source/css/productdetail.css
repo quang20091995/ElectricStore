@@ -1,5 +1,6 @@
 ﻿.title{
    font-size: 18px;
+   margin-left: 5px;
 }
 
 .heading .row {
@@ -27,7 +28,7 @@
 }
 
 .head-title {
-    height: 44px;
+    height: 37px;
     font-size: 16px;
 }
 
