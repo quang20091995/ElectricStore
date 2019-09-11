@@ -24,30 +24,6 @@ $(document).ready(function () {
     });
 });
 
-//function displayAllProducts() {
-//    $('.main-above .row').empty();
-//    $.ajax({
-//        url: '/Home/GetProduct',
-//        type: 'GET',
-//        dataType: 'json',
-//        contentType: 'application/json; charset=utf-8',
-//        success: function (data) {
-//            var html = '';
-//            $.each(data, function (key, item) {
-//                html += createProductItem(item);              
-//            });
-
-//            $('.main-above .row').append(html);
-
-//            createPagination(2);
-
-//        },
-//        error: function (error) {
-//            alert(error);
-//        }
-//    });
-//}
-
 function displayProducts() {
     displayPagination(current_page);
 }

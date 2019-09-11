@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LaptopStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LaptopStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Accounts">
           <Key>
             <PropertyRef Name="AccountId" />
@@ -45,8 +45,8 @@
           <Property Name="Monitorsize" Type="float" />
           <Property Name="Operation" Type="varchar" MaxLength="50" />
           <Property Name="Color" Type="varchar" MaxLength="50" />
-          <Property Name="Connection" Type="varchar" MaxLength="50" />
-          <Property Name="Gate" Type="varchar" MaxLength="100" />
+          <Property Name="Connection" Type="varchar(max)" />
+          <Property Name="Gate" Type="varchar(max)" />
           <Property Name="Webcam" Type="bit" />
           <Property Name="Recognition" Type="bit" />
           <Property Name="Battery" Type="float" />
@@ -157,8 +157,7 @@
             <End Role="ProductDetails" EntitySet="ProductDetails" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LaptopStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -205,8 +204,8 @@
           <Property Name="Monitorsize" Type="Double" />
           <Property Name="Operation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Connection" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Gate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Connection" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Gate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Webcam" Type="Boolean" />
           <Property Name="Recognition" Type="Boolean" />
           <Property Name="Battery" Type="Double" />

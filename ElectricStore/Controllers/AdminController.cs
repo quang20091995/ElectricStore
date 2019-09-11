@@ -105,6 +105,11 @@ namespace ElectricStore.Controllers
         [HttpPost]
         public JsonResult AddProduct(AddProductRequest parameter)
         {
+            if (!ModelState.IsValid) {
+                string validation_errors = string.Join("\n", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)).ToString();
+                return Json(new { success = false, validation_errors});
+            }
+
             Product product_parameter = new Product();
             product_parameter.ProductName = parameter.ProductName;
             product_parameter.CategoryId = parameter.CategoryId;
@@ -136,9 +141,10 @@ namespace ElectricStore.Controllers
             product_detail_parameter.Description = parameter.Description;
             product_detail_parameter.Core = parameter.Core;
             product_detail_parameter.Disc = parameter.Disc;
+
             iproduct_detail_repository.Insert(product_detail_parameter);
 
-            return Json("Thành công", JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, message = "Tạo mới sản phẩm thành công" });
         }
 
         public ActionResult EditProduct(int product_id)

@@ -27,6 +27,14 @@
 </div>
 
 <div class="add-product-area">
+    @*<div class="error-area" id="error-area">
+        <span><i class="glyphicon glyphicon-remove-circle"></i></span>
+        <span class="error-content">Đã xảy ra lỗi</span>
+    </div>*@
+    <div class="alert alert-danger error-area">
+        <div class="error-content"></div>
+    </div>
+
     <div class="product-info">
         <div class="product-info-head head-title row">
             <div class="icon-container col-xs-3">
@@ -49,7 +57,7 @@
                     </div>
 
                     <div class="col-md-7">
-                        <input class="form-control" id="product_name"/>
+                        <input class="form-control" id="product_name" />
                     </div>
                 </div>
             </div>
@@ -152,7 +160,7 @@
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
                         <label class="control-label">
-                            Bộ vi xử lý
+                            Model
                         </label>
                         <div title="The customer's email." data-toggle="tooltip" class="ico-help">
                             <i class="fa fa-question-circle"></i>
@@ -225,7 +233,7 @@
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
                         <label class="control-label">
-                            RAM
+                            Bộ nhớ
                         </label>
                         <div title="The customer's email." data-toggle="tooltip" class="ico-help">
                             <i class="fa fa-question-circle"></i>
@@ -269,7 +277,7 @@
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
                         <label class="control-label">
-                            Bộ nhớ
+                            Dưng lượng lưu trữ
                         </label>
                         <div title="The customer's email." data-toggle="tooltip" class="ico-help">
                             <i class="fa fa-question-circle"></i>
@@ -285,7 +293,7 @@
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
                         <label class="control-label">
-                            Thông tin bộ nhớ
+                            Ổ đĩa/ Ổ đĩa quang
                         </label>
                         <div title="The customer's email." data-toggle="tooltip" class="ico-help">
                             <i class="fa fa-question-circle"></i>
@@ -310,7 +318,7 @@
 
                     <div class="col-md-7">
                         <select class="form-control" id="monitor-size">
-                            <option value="#">Chọn cỡ màn hình</option>
+                            <option>Chọn cỡ màn hình</option>
                             <option value="12">12</option>
                             <option value="13">13</option>
                             <option value="13.3">13.3</option>
@@ -367,7 +375,7 @@
 
                     <div class="col-md-7">
                         <select class="form-control" id="color">
-                            <option value="#">Chọn màu sắc</option>
+                            <option>Chọn màu sắc</option>
                             <option value="white" style="background-color: white">Trắng</option>
                             <option value="silver" style="background-color: silver">Silver</option>
                             <option value="red" style="background-color: red">Đỏ</option>
@@ -400,7 +408,7 @@
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
                         <label class="control-label">
-                            Cổng
+                            Cổng giao tiếp
                         </label>
                         <div title="The customer's email." data-toggle="tooltip" class="ico-help">
                             <i class="fa fa-question-circle"></i>
@@ -468,7 +476,7 @@
                 <div class="row">
                     <div class="col-md-3 label-wrapper">
                         <label class="control-label">
-                            Kích cỡ
+                            Kích thước
                         </label>
                         <div title="The customer's email." data-toggle="tooltip" class="ico-help">
                             <i class="fa fa-question-circle"></i>

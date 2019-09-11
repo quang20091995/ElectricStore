@@ -89,7 +89,7 @@ function getParameterFormAddProduct() {
         "CategoryId": $('#category option:selected').val(),
         "ManufactureId": $('#company option:selected').val(),
         "ProductPrice": $('#price').val(),
-        "StockStatus": $('#stock-status').val(),
+        "StockStatus": $('#stock-status').is(':checked')? 'true':'false',
         "Microprocessor": $('#micro-processor').val(),
         "Speed": $('#speed').val(),
         "Core": $('#core').val(),
@@ -103,8 +103,8 @@ function getParameterFormAddProduct() {
         "Color": $('#color').val(),
         "Connection": $('#connection').val(),
         "Gate": $('#gate').val(),
-        "Webcam": $('#webcam').val(),
-        "Recognition": $('#recognition').val(),
+        "Webcam": $('#webcam').is(':checked') ? 'true' : 'false',
+        "Recognition": $('#recognition').is(':checked') ? 'true' : 'false',
         "Battery": $('#battery').val(),
         "Size": $('#size').val(),
         "Weight": $('#weight').val(),
@@ -123,10 +123,14 @@ function addProduct() {
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
-            alert(data);
+            if (data.success) {
+                $(".error-content").text(data.message);
+            } else {
+                $(".error-content").append(data.validation_errors);
+            }    
         },
         error: function (error) {
-            alert('Không load được dữ liệu');
+            alert("Lỗi");
         }
     });
 }
