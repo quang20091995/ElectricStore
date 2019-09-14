@@ -27,13 +27,8 @@
 </div>
 
 <div class="add-product-area">
-    @*<div class="error-area" id="error-area">
-        <span><i class="glyphicon glyphicon-remove-circle"></i></span>
-        <span class="error-content">Đã xảy ra lỗi</span>
-    </div>*@
-    <div class="alert alert-danger error-area">
-        <div class="error-content"></div>
-    </div>
+    <div class="success-area"></div>
+    <div class="errors-area"></div>
 
     <div class="product-info">
         <div class="product-info-head head-title row">
@@ -74,7 +69,7 @@
 
                     <div class="col-md-7">
                         <select class="form-control category" id="category">
-                            <option>Chọn danh mục</option>
+                            <option value="0">Chọn danh mục</option>
                         </select>
                     </div>
                 </div>
@@ -92,7 +87,7 @@
 
                     <div class="col-md-7">
                         <select class="form-control company" id="company">
-                            <option>Chọn công ty</option>
+                            <option value="0">Chọn công ty</option>
                         </select>
                     </div>
                 </div>
@@ -318,7 +313,7 @@
 
                     <div class="col-md-7">
                         <select class="form-control" id="monitor-size">
-                            <option>Chọn cỡ màn hình</option>
+                            <option value="0">Chọn cỡ màn hình</option>
                             <option value="12">12</option>
                             <option value="13">13</option>
                             <option value="13.3">13.3</option>

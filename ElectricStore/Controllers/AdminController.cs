@@ -105,8 +105,9 @@ namespace ElectricStore.Controllers
         [HttpPost]
         public JsonResult AddProduct(AddProductRequest parameter)
         {
+            ModelState.Remove("Monitorsize");
             if (!ModelState.IsValid) {
-                string validation_errors = string.Join("\n", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)).ToString();
+                var validation_errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
                 return Json(new { success = false, validation_errors});
             }
 
@@ -119,33 +120,52 @@ namespace ElectricStore.Controllers
 
             iproduct_repository.Insert(product_parameter);
 
-            ProductDetail product_detail_parameter = new ProductDetail();
-            product_detail_parameter.ProductId = context.Products.First(x => x.ProductName.Equals(parameter.ProductName)).ProductId;
-            product_detail_parameter.Microprocessor = parameter.Microprocessor;
-            product_detail_parameter.Speed = parameter.Speed;
-            product_detail_parameter.Graphics = parameter.Graphics;
-            product_detail_parameter.RAM = parameter.RAM;
-            product_detail_parameter.Capacity = parameter.Capacity;
-            product_detail_parameter.Hardware = parameter.Hardware;
-            product_detail_parameter.Monitor = parameter.Monitor;
-            product_detail_parameter.Monitorsize = parameter.Monitorsize;
-            product_detail_parameter.Operation = parameter.Operation;
-            product_detail_parameter.Color = parameter.Color;
-            product_detail_parameter.Connection = parameter.Connection;
-            product_detail_parameter.Gate = parameter.Gate;
-            product_detail_parameter.Webcam = parameter.Webcam;
-            product_detail_parameter.Recognition = parameter.Recognition;
-            product_detail_parameter.Battery = parameter.Battery;
-            product_detail_parameter.Size = parameter.Size;
-            product_detail_parameter.Weight = parameter.Weight;
-            product_detail_parameter.Description = parameter.Description;
-            product_detail_parameter.Core = parameter.Core;
-            product_detail_parameter.Disc = parameter.Disc;
+            int created_product_id = context.Products.First(x => x.ProductName.Equals(parameter.ProductName)).ProductId;
 
-            iproduct_detail_repository.Insert(product_detail_parameter);
+            
 
-            return Json(new { success = true, message = "Tạo mới sản phẩm thành công" });
+            bool check_having_detail = iproduct_repository.CheckProductHavingDetail(created_product_id);
+
+            if (check_having_detail)
+            {
+                
+            }
+
+            return Json(new { success = true, status = false, message = "Tạo mới sản phẩm thành công! Xin vui lòng tạo thông tin chi tiết sản phẩm" });
         }
+
+        public JsonResult AddProductDetail(AddProductDetailRequest parameter)
+        {
+            if (ModelState.IsValid)
+            {
+                ProductDetail product_detail_parameter = new ProductDetail();
+                product_detail_parameter.ProductId = parameter.ProductId;
+                product_detail_parameter.Microprocessor = parameter.Microprocessor;
+                product_detail_parameter.Speed = parameter.Speed;
+                product_detail_parameter.Graphics = parameter.Graphics;
+                product_detail_parameter.RAM = parameter.RAM;
+                product_detail_parameter.Capacity = parameter.Capacity;
+                product_detail_parameter.Hardware = parameter.Hardware;
+                product_detail_parameter.Monitor = parameter.Monitor;
+                product_detail_parameter.Monitorsize = parameter.Monitorsize;
+                product_detail_parameter.Operation = parameter.Operation;
+                product_detail_parameter.Color = parameter.Color;
+                product_detail_parameter.Connection = parameter.Connection;
+                product_detail_parameter.Gate = parameter.Gate;
+                product_detail_parameter.Webcam = parameter.Webcam;
+                product_detail_parameter.Recognition = parameter.Recognition;
+                product_detail_parameter.Battery = parameter.Battery;
+                product_detail_parameter.Size = parameter.Size;
+                product_detail_parameter.Weight = parameter.Weight;
+                product_detail_parameter.Description = parameter.Description;
+                product_detail_parameter.Core = parameter.Core;
+                product_detail_parameter.Disc = parameter.Disc;
+
+                iproduct_detail_repository.Insert(product_detail_parameter);
+            }
+            
+            return Json(new { success = true, status = false, message = "Tạo mới sản phẩm thành công" });
+        } 
 
         public ActionResult EditProduct(int product_id)
         {

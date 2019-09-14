@@ -15,15 +15,14 @@ namespace ElectricStore
     public partial class Product
     {
         public int ProductId { get; set; }
-        public Nullable<int> CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public string ProductName { get; set; }
-        public Nullable<int> ManufactureId { get; set; }
-        public Nullable<decimal> ProductPrice { get; set; }
+        public int ManufactureId { get; set; }
+        public decimal ProductPrice { get; set; }
         public string ProductImage { get; set; }
-        public Nullable<bool> StockStatus { get; set; }
+        public bool StockStatus { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Company Company { get; set; }
-        public virtual ProductDetail ProductDetail { get; set; }
     }
 }

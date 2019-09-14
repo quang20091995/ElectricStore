@@ -29,13 +29,11 @@ namespace ElectricStore
         public string Gate { get; set; }
         public Nullable<bool> Webcam { get; set; }
         public Nullable<bool> Recognition { get; set; }
-        public Nullable<double> Battery { get; set; }
+        public string Battery { get; set; }
         public string Size { get; set; }
         public Nullable<double> Weight { get; set; }
         public string Description { get; set; }
         public string Core { get; set; }
         public string Disc { get; set; }
-    
-        public virtual Product Product { get; set; }
     }
 }

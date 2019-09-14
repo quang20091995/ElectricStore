@@ -5,7 +5,7 @@
     });
 });
 
-function displayHtml(){
+function displayHtml() {
     displayComboxBoxCompany();
     displayComboxBoxCategory();
     displayToggle();
@@ -89,7 +89,14 @@ function getParameterFormAddProduct() {
         "CategoryId": $('#category option:selected').val(),
         "ManufactureId": $('#company option:selected').val(),
         "ProductPrice": $('#price').val(),
-        "StockStatus": $('#stock-status').is(':checked')? 'true':'false',
+        "StockStatus": $('#stock-status').is(':checked') ? 'true' : 'false',        
+    };
+    return parameter;
+}
+
+function getParameterFormAddProductDetail() {
+    var parameter = {
+        "ProductId": $('#product-id').val(),
         "Microprocessor": $('#micro-processor').val(),
         "Speed": $('#speed').val(),
         "Core": $('#core').val(),
@@ -115,19 +122,48 @@ function getParameterFormAddProduct() {
 }
 
 function addProduct() {
-    var parameter = getParameterFormAddProduct();
+    var parameter = '';
+    var url = '';
+    if ($("#add-product-btn").val() === "add") {
+        url = '/Admin/AddProduct';
+        parameter = getParameterFormAddProduct();
+    } else {
+        url = '/Admin/AddDetailProduct';
+        parameter = getParameterFormAddProductDetail();
+    }
+    ajaxAddProduct(url, parameter);
+}
+
+function ajaxAddProduct(url, parameter) {
     $.ajax({
-        url: '/Admin/AddProduct',
+        url: url,
         data: JSON.stringify(parameter),
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
-            if (data.success) {
-                $(".error-content").text(data.message);
+            var html = '';
+            if (data.success && data.status) {
+                html = '<div class="alert alert-success">';
+                html += data.message;
+                html += '</div>';
+                $(".success-area").append(html);
+            } else if (data.success && !data.status) {
+                html = '<div class="alert alert-success">';
+                html += data.message;
+                html += '</div>';
+                $(".success-area").append(html);
             } else {
-                $(".error-content").append(data.validation_errors);
-            }    
+                $(".errors-area").empty();
+                html = '<div class="alert alert-danger error-area">';
+                html += '<div class="error-content">';
+                html = '<ul style="margin:auto;">';
+                $.each(data.validation_errors, function (key, item) {
+                    html += '<li>' + item + '</li>';
+                });
+                html += '</ul></div</div>';
+                $(".errors-area").append(html);
+            }
         },
         error: function (error) {
             alert("Lỗi");

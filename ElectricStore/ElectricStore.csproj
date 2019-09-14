@@ -53,6 +53,9 @@
     <Reference Include="Catel.MVVM, Version=5.11.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Catel.MVVM.5.11.2\lib\net47\Catel.MVVM.dll</HintPath>
     </Reference>
+    <Reference Include="DataAnnotationsExtensions, Version=5.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataAnnotationsExtensions.5.0.1.27\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -216,6 +219,7 @@
     <Compile Include="Logic\IPageLogic.cs" />
     <Compile Include="Models\Element\CartItem.cs" />
     <Compile Include="Models\Element\ConditionResult.cs" />
+    <Compile Include="Models\Request\AddProductDetailRequest.cs" />
     <Compile Include="Models\Request\AddProductRequest.cs" />
     <Compile Include="Models\Response\AdminProductResponse.cs" />
     <Compile Include="Models\Element\ProductElement.cs" />
