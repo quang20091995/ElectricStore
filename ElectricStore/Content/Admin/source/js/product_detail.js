@@ -1,7 +1,13 @@
-﻿$(document).ready(function () {
+﻿var now_product_id = "#";
+
+$(document).ready(function () {
     displayHtml();
     $("#add-product-btn").click(function () {
         addProduct();
+    });
+
+    $("#new-product-btn").click(function () {
+        refreshInput();
     });
 });
 
@@ -85,7 +91,7 @@ function displayComboxBoxCategory() {
 
 function getParameterFormAddProduct() {
     var parameter = {
-        "ProductName": $('#product_name').val(),
+        "ProductName": $('#product-name').val(),
         "CategoryId": $('#category option:selected').val(),
         "ManufactureId": $('#company option:selected').val(),
         "ProductPrice": $('#price').val(),
@@ -96,7 +102,7 @@ function getParameterFormAddProduct() {
 
 function getParameterFormAddProductDetail() {
     var parameter = {
-        "ProductId": $('#product-id').val(),
+        "ProductId": now_product_id,
         "Microprocessor": $('#micro-processor').val(),
         "Speed": $('#speed').val(),
         "Core": $('#core').val(),
@@ -124,17 +130,20 @@ function getParameterFormAddProductDetail() {
 function addProduct() {
     var parameter = '';
     var url = '';
-    if ($("#add-product-btn").val() === "add") {
+    if ($("#add-product-btn").attr("value") === "add") {
         url = '/Admin/AddProduct';
         parameter = getParameterFormAddProduct();
     } else {
-        url = '/Admin/AddDetailProduct';
+        url = '/Admin/AddProductDetail';
         parameter = getParameterFormAddProductDetail();
     }
     ajaxAddProduct(url, parameter);
 }
 
 function ajaxAddProduct(url, parameter) {
+    $(".success-area").empty();
+    $(".errors-area").empty();
+
     $.ajax({
         url: url,
         data: JSON.stringify(parameter),
@@ -143,18 +152,25 @@ function ajaxAddProduct(url, parameter) {
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             var html = '';
-            if (data.success && data.status) {
+            if (data.success) {                
                 html = '<div class="alert alert-success">';
                 html += data.message;
                 html += '</div>';
                 $(".success-area").append(html);
-            } else if (data.success && !data.status) {
-                html = '<div class="alert alert-success">';
-                html += data.message;
-                html += '</div>';
-                $(".success-area").append(html);
-            } else {
-                $(".errors-area").empty();
+
+                // Bật lại phần nhập thông tin chi tiết
+                $(".info-advanced-area").removeClass('hidden');
+                if (data.type === "add-product") {
+                    // Đổi lại trạng thái nút Lưu(Sửa) sản phẩm
+                    $("#add-product-btn").attr('value', 'addedit');
+                    now_product_id = data.id;
+                    blockProductArea();
+                } else {
+                    // Đổi lại trạng thái nút Lưu mới sản phẩm
+                    $("#add-product-btn").attr('value', 'add');    
+                    blockProductDetailArea();
+                }               
+            } else {                
                 html = '<div class="alert alert-danger error-area">';
                 html += '<div class="error-content">';
                 html = '<ul style="margin:auto;">';
@@ -166,7 +182,25 @@ function ajaxAddProduct(url, parameter) {
             }
         },
         error: function (error) {
-            alert("Lỗi");
+            var html = '';
+            html += '<div class="alert alert-danger error-area">';
+            html += 'Xảy ra lỗi!';
+            html += '</div>';
+            $(".errors-area").append(html);
         }
     });
+}
+
+function blockProductArea() {
+    $(".product-info .form-control, input").attr("disabled", true);
+}
+
+function blockProductDetailArea() {
+    $(".info-advanced-area .form-control, input").attr("disabled", true);
+}
+
+function refreshInput() {
+    $(".product-info .form-control").val('');
+    $(".info-advanced-area .form-control").val('');
+    $("input[type='checkbox']").prop('checked', false);
 }
