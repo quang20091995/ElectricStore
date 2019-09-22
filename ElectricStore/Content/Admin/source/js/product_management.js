@@ -8,19 +8,16 @@ $(document).ready(function () {
 
 });
 
-
-
-
 function displayProducts() {
     displayPagination(current_page);
 }
 
 
-function displayPagination() {
+function displayPagination(page) {
     $('.product-admin-table tbody').empty();
     $.ajax({
         url: '/Admin/GetProductsByPagination',
-        data: { current_page: current_page },
+        data: { current_page: page },
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -151,7 +148,7 @@ function init() {
     var stock_exist = $("input[name='chk-stock-status']:checked").val();
 
     if (product_id !== '') {
-        $('#product-name').prop('disabled', true);
+        //$('#product-name').prop('disabled', true);
     }
 
     if (product_name !== '') {
@@ -159,7 +156,7 @@ function init() {
     }
 
     if (category_id !== '#' || company_id !== '#' || stock_exist !== null) {
-        $('#product-name').prop('disabled', true);
+        //$('#product-name').prop('disabled', true);
         $('#product-id').prop('disabled', true);
     }  
 } 
@@ -174,6 +171,29 @@ function checkSearch() {
     };
 
     console.log(search_parameters);
+}
+
+function deleteProduct(product_id) {
+    var display_confirm = confirm("Press a button!");
+    if (display_confirm === true) {
+        $.ajax({
+            url: '/Admin/DeleteProduct',
+            data: { product_id: product_id },
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                // Hiển thị sản phẩm lại
+                displayProducts();
+            },
+            error: function (error) {
+                alert('Không load được dữ liệu');
+            }
+        });
+    } else {
+        return;
+    }
+    
 }
 
 

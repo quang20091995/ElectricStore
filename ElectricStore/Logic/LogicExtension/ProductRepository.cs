@@ -26,11 +26,16 @@ namespace ElectricStore.Logic.LogicExtension
             return check;
         }
 
-        public void Delete(int id)
+        public string Delete(int id)
         {
             Product product = GetById(id);
+            if(product is null)
+            {
+                return "Xóa sản phẩm không thành công";
+            }
             context.Products.Remove(product);
             context.SaveChanges();
+            return "Xóa sản phẩm thành công";
         }
 
         public Product GetById(int id)
