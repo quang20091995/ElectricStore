@@ -22,7 +22,7 @@ namespace ElectricStore.Models.Request
         public string Gate { get; set; }
         public Nullable<bool> Webcam { get; set; }
         public Nullable<bool> Recognition { get; set; }
-        public string Battery { get; set; }
+        public Nullable<double> Battery { get; set; }
         public string Size { get; set; }
         public Nullable<double> Weight { get; set; }
         public string Description { get; set; }

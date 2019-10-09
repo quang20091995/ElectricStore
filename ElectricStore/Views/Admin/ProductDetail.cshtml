@@ -1,0 +1,577 @@
+﻿<link href="~/Content/Admin/source/css/editproduct.css" rel="stylesheet" />
+<script src="~/Content/Admin/source/js/product_detail.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="heading">
+    <div class="row">
+        <div class="col-xs-2 page-name">
+            Thêm sản phẩm mới
+        </div>
+        <div class="col-xs-3">
+            <a href="@Url.Action("ManageProducts","Admin")" style="color: #0076bb">
+                <i class="fa fa-arrow-circle-left"></i>
+                Quay lại trang sản phẩm
+            </a>
+        </div>
+        <div class="col-xs-7 text-right">
+            <button class="btn bg-blue">
+                <i class="fa fa-floppy-o" id="save-product-btn"> Lưu</i>
+            </button>
+            <button class="btn bg-blue">
+                <i class="fa fa-floppy-o" id="cancel-edit-product-btn"> Hủy bỏ</i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="add-product-area">
+    <div class="success-area"></div>
+    <div class="errors-area"></div>
+
+    <div class="product-info">
+        <div class="product-info-head head-title row">
+            <div class="icon-container col-xs-3">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <span class="title">Thông tin sản phẩm</span>
+            </div>
+            <i class="open-close-1 toggle-icon glyphicon glyphicon-plus col-xs-9 text-right"></i>
+        </div>
+
+        <div class="form-horizontal" id="info-area">
+            <div class="form-group" hidden>
+                <div class="row">
+                    <div class="col-md-7">
+                        <input class="form-control" id="product-id" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Tên sản phẩm
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="product-name" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Danh mục SP
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <select class="form-control category" id="category">
+                            <option value="#" selected>Chọn danh mục</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Hãng
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <select class="form-control company" id="company">
+                            <option value="0" selected>Chọn công ty</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Giá SP
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="number" class="form-control" id="price" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Trạng thái SP
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7" style="margin-top: 3px;">
+                        <input type="checkbox" id="stock-status" name="stock-status">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="add-image-area">
+
+        <div class="product-info-head head-title row">
+            <div class="icon-container col-xs-3">
+                <span class="glyphicon glyphicon-picture"></span>
+                <span class="title">Hình ảnh</span>
+            </div>
+            <i class="open-close-2 toggle-icon glyphicon glyphicon-plus col-xs-9 text-right"></i>
+        </div>
+        <div class="form-horizontal" id="image-area">
+            <div class="text-area">Cần phải lưu sản phẩm này trước khi thêm hình ảnh</div>
+            <div class="form-group">
+                <div class="col-md-3 label-wrapper">
+                    <label class="control-label">
+                        Hình ảnh
+                    </label>
+                    <div title="" data-toggle="tooltip" class="ico-help">
+                        <i class="fa fa-question-circle"></i>
+                    </div>
+                </div>
+                <form class="col-md-9" method="post" enctype="multipart/form-data">
+                    <img class="preview-image" src="~/Content/Admin/source/images/image_default.jpg" width="100" height="100" />
+                    <label class="btn btn-danger btn-file">
+                        <input type="file" style="display: none;" accept="image/png, image/jpeg, image/gif" /> Chọn ảnh
+                    </label>
+                    <script type="text/javascript">
+                        function readURL(input) {
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+
+                                reader.onload = function (e) {
+                                    $('.preview-image').attr('src', e.target.result);
+                                }
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+                        $('.btn-file input[type=file]').change(function () {
+                            readURL(this);
+                        });
+                    </script>
+                    <button class="btn btn-success">Xác nhận</button>
+                </form>
+            </div>
+            <div class="text-area">Danh sách ảnh đang tồn tại</div>
+            <table class="table table-bordered table-image-list" id="table-image-list">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Hình ảnh</th>
+                        <th>Tên ảnh</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="info-advanced-area">
+        <div class="head-title row">
+            <div class="icon-container col-xs-3">
+                <span class="fa fa-paperclip"></span>
+                <span class="title">Thông tin chi tiết sản phẩm</span>
+            </div>
+            <i class="open-close-3 toggle-icon glyphicon glyphicon-plus col-xs-9 text-right"></i>
+        </div>
+
+        <div class="form-horizontal" id="product-detail-area">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Model
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="micro-processor" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label text-right">
+                            Tốc độ
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" type="number" id="speed" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Vi xử lý
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <select class="form-control" id="core">
+                            <option value="#">Chọn vi xử lý</option>
+                            <option value="AMD3">AMD 3</option>
+                            <option value="AMD5">AMD 5</option>
+                            <option value="AMD7">AMD 7</option>
+                            <option value="Corei3">Core i3</option>
+                            <option value="Corei5">Core i5</option>
+                            <option value="Corei7">Core i7</option>
+                            <option value="Corei9">Core i9</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Đồ họa
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="graphics" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Bộ nhớ
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <select class="form-control ram" id="ram">
+                            <option value="#">Chọn RAM</option>
+                            <option value="4GB">4 GB</option>
+                            <option value="8GB">8 GB</option>
+                            <option value="16GB">16 GB</option>
+                            <option value="32GB">32 GB</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Loại ổ đĩa
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <select class="form-control ram" id="disc">
+                            <option value="#">Chọn loại ổ đĩa</option>
+                            <option value="SSD+HDD">SSD+HDD</option>
+                            <option value="SSD">SSD</option>
+                            <option value="HDD">HDD</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Dưng lượng lưu trữ
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input type="number" class="form-control" id="capacity" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Ổ đĩa/ Ổ đĩa quang
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="hardware" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Cỡ màn hình
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <select class="form-control" id="monitor-size">
+                            <option value="0">Chọn cỡ màn hình</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="13.3">13.3</option>
+                            <option value="14">14</option>
+                            <option value="15.6">15.6</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Màn hình
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="monitor" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Hệ điều hành
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="operation" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Màu sắc
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <select class="form-control" id="color">
+                            <option>Chọn màu sắc</option>
+                            <option value="white" style="background-color: white">Trắng</option>
+                            <option value="silver" style="background-color: silver">Silver</option>
+                            <option value="red" style="background-color: red">Đỏ</option>
+                            <option value="black" style="background-color: black">Đen</option>
+                            <option value="lightpink" style="background-color: lightpink">Hồng sáng</option>
+                            <option value="gold" style="background-color: gold">Gold</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Kết nối
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="connection" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Cổng giao tiếp
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="gate" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Webcam
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input type="checkbox" id="webcam">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Nhận diện vân tay
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input type="checkbox" id="recognition">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Pin
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="battery" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Kích thước
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input class="form-control" id="size" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Trọng lượng
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <input type="number" class="form-control" id="weight" />
+                    </div>
+                    <span class="unit">kg</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 label-wrapper">
+                        <label class="control-label">
+                            Miêu tả
+                        </label>
+                        <div title="The customer's email." data-toggle="tooltip" class="ico-help">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <textarea class="form-control" id="description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

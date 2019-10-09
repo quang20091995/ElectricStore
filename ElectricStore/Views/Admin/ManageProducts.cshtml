@@ -1,4 +1,5 @@
 ﻿<link href="~/Content/Admin/source/css/admin.css" rel="stylesheet" />
+<script src="~/Content/Admin/source/js/product_management.js"></script>
 
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -10,10 +11,15 @@
     </div>
     <div class="col-xs-9 text-right">
         <div class="row">
-            <a href="@Url.Action("DetailProduct","Admin")" class="btn btn-primary">Thêm mới</a>
+            <a href="@Url.Action("AddProduct","Admin")" class="btn btn-primary">Thêm mới</a>
             <a class="btn btn-success">Xuất file Excel</a>
         </div>
     </div>
+</div>
+
+<div class="message">
+    <div class="success-area"></div>
+    <div class="errors-area"></div>
 </div>
 
 <div class="search-area">
@@ -59,8 +65,8 @@
                         <input type="text" class="form-control product-id">
                     </div>
                 </div>
-               
-                 <div class="form-group row stock-status">
+
+                <div class="form-group row stock-status">
                     <label class="col-xs-3 col-form-label">Tình trạng</label>
                     <div class="col-xs-9 text-left">
                         <input type="checkbox" name="chk-stock-status" value="true"> Tồn tại
@@ -68,7 +74,7 @@
                     </div>
                 </div>
             </div>
-           
+
         </form>
     </div>
     <div class="row text-center">
@@ -83,7 +89,7 @@
         <colgroup>
             <col style="width: 2%">
             <col style="width: 3%">
-            <col style="width: 17%;">
+            <col style="width: 25%;">
             <col style="width: 5%;">
             <col style="width: 5%;">
             <col style="width: 3%;">

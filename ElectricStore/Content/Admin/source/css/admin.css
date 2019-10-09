@@ -8,12 +8,16 @@
     padding-right: 15px;
 }
 
+.message {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .search-area {
     border: 1px #ddd solid;
     border-radius: 4px;
     margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
+
     height: 245px;
     font-size: 18px;
     font-weight: 400;
@@ -40,7 +44,7 @@
     }
 
     .product-area {
-        margin: 10px;
+        margin: 10px 0 0 0;
         border: 1px #ddd solid;
         border-radius: 4px;
         background-color: white;
@@ -62,7 +66,7 @@
 
 
 .product-admin-table {
-    max-width: 1027px;
+    max-width: 1217px;
     margin: 15px;
 }
     .product-admin-table thead tr th{

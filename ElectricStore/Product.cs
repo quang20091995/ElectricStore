@@ -14,6 +14,12 @@ namespace ElectricStore
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.Albums = new HashSet<Album>();
+        }
+    
         public int ProductId { get; set; }
         public int CategoryId { get; set; }
         public string ProductName { get; set; }
@@ -24,5 +30,7 @@ namespace ElectricStore
     
         public virtual Category Category { get; set; }
         public virtual Company Company { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Album> Albums { get; set; }
     }
 }

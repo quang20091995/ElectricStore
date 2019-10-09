@@ -7,7 +7,7 @@ namespace ElectricStore.Models.Response
 {
     public class ProductElement
     {
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
         public String ProductName { get; set; }
         public String CategoryName { get; set; }
         public String Manufacture { get; set; }

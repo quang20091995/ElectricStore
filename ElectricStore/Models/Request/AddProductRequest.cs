@@ -8,7 +8,7 @@ using System.Web;
 
 namespace ElectricStore.Models.Request
 {
-    public class AddProductRequest
+    public class ProductRequest
     {
         public int ProductId { get; set; }
         [Range(1, 50, ErrorMessage = "Vui lòng chọn loại sản phẩm")]

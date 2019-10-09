@@ -5,7 +5,6 @@ $(document).ready(function () {
     displayCategory();
     displayCompany();
     init();
-
 });
 
 function displayProducts() {
@@ -56,8 +55,8 @@ function createProductItem(product) {
         html += '<td class="text-center"><i class="fa fa-minus-circle text-danger"></i></td>';
     }
     html += '<td style="text-align:center;"><img src="/Content/Images/LaptopProduct/' + product.ProductImage + '"/></td>';
-    html += '<td class="text-center"><a href="Admin/Product/ProductId=' + product.ProductId + '" class="btn btn-default"><i class="fa fa-pencil"> Sửa</i></a>';
-    html += '<a href="void:javascript(0)" class="btn btn-default" onclick="deleteProduct(' + product.ProductId + ')"><i class="fa fa-remove danger"> Xóa</i></a></td>';
+    html += '<td><a href="/Admin/ProductDetail?product_id=' + product.ProductId + '" class="btn btn-default"><i class="fa fa-edit"> Sửa</i></a>';
+    html += '<a href="void:javascript(0)" class="btn btn-default" onclick="deleteProduct(' + product.ProductId + ')"><i class="fa fa-remove"> Xóa</i></a></td>';
     html += '</tr>';
     return html;
 }
@@ -174,6 +173,8 @@ function checkSearch() {
 }
 
 function deleteProduct(product_id) {
+    // Refresh lại thông báo
+    refreshMessage();
     var display_confirm = confirm("Press a button!");
     if (display_confirm === true) {
         $.ajax({
@@ -185,16 +186,35 @@ function deleteProduct(product_id) {
             success: function (data) {
                 // Hiển thị sản phẩm lại
                 displayProducts();
+
+                // Hiển thị thông điệp xóa thành công
+                displayInfoMessage(data.message);            
             },
-            error: function (error) {
-                alert('Không load được dữ liệu');
+            error: function (error) {              
+                displayErrorMessage(error.message); 
             }
         });
     } else {
         return;
     }
-    
 }
 
+function displayInfoMessage(text) {
+    html = '<div class="alert alert-success">';
+    html += text;
+    html += '</div>';
+    $(".success-area").append(html);
+}
 
+function displayErrorMessage(text) {
+    html = '<div class="alert alert-danger">';
+    html += text;
+    html += '</div>';
+    $(".errors-area").append(html);
+}
+
+function refreshMessage() {
+    $('.success-area').empty();
+    $('.errors-area').empty();
+}
 

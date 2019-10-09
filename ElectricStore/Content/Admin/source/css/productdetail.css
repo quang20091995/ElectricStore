@@ -68,6 +68,10 @@
         padding-left: 6px;
     }
 
+.unit{
+    line-height: 34px;
+}
+
 .stock-status {
     width: 20px;
     height: 20px;
@@ -95,3 +99,13 @@
         width: 15px;
         height: 15px;
     }
+
+/*Khu vực chứa ảnh*/
+.table-image-list {
+    width: 1228px;
+    margin-left: 10px;
+}
+
+#image-area .row{
+    margin-top: 10px;
+}

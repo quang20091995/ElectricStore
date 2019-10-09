@@ -17,7 +17,7 @@ namespace ElectricStore.Logic.LogicExtension
             var result = context.ProductDetails.First(x=>x.ProductId.Equals(id));
             if(result.Microprocessor == "" && result.Speed == 0 && result.Graphics == "" 
                 && result.RAM == "" && result.Capacity == 0 && result.Hardware == "" && result.Monitor == "" && result.Monitorsize == 0 
-                && result.Operation == "" && result.Color == "" && result.Connection == "" && result.Gate == "" && result.Battery == "" 
+                && result.Operation == "" && result.Color == "" && result.Connection == "" && result.Gate == "" && result.Battery == 0 
                 && result.Size == "" && result.Weight == 0 && result.Core == "" && result.Disc == "")
             {
                 check = false;
@@ -26,16 +26,16 @@ namespace ElectricStore.Logic.LogicExtension
             return check;
         }
 
-        public string Delete(int id)
+        public bool Delete(int id)
         {
             Product product = GetById(id);
             if(product is null)
             {
-                return "Xóa sản phẩm không thành công";
+                return false;
             }
             context.Products.Remove(product);
             context.SaveChanges();
-            return "Xóa sản phẩm thành công";
+            return true;
         }
 
         public Product GetById(int id)

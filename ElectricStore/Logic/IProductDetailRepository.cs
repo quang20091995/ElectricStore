@@ -11,6 +11,6 @@ namespace ElectricStore.Logic
         ProductDetail GetById(int id);
         void Insert(ProductDetail product_detail);
         void Update(ProductDetail product_detail);
-        string Delete(int id);
+        bool Delete(int id);
     }
 }
